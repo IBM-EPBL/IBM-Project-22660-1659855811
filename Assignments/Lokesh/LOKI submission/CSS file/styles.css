@@ -12,7 +12,7 @@ body{
 }
 .header{
     display: block;
-    background-color: rgba(0, 170, 255, 0.862);
+    background-color: rgba(12, 155, 171, 0.862);
     height: 200px;
     width: 100%;
     margin-left: 3px;
@@ -24,7 +24,7 @@ body{
     margin-left: 55%;
     margin-top: 28px;
     color: black;
-    width: 20%;
+    width: 10%;
     height: 15%;
     border-radius: 5%;
     cursor: pointer;
@@ -37,7 +37,7 @@ body{
 .hire {
     background-color: rgba(3, 138, 106, 0.904);
     color: white;
-    width: 20%;
+    width: 10%;
     height: 15%;
     border-radius: 20px;
     border-color: rgba(0, 170, 255, 0.958);
@@ -146,6 +146,90 @@ ul {
     left: 13%;
     bottom: 3%;
 }
+.skills_main{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 30px;
+    grid-column-gap: 50px;
+}
+.skills_main .skill_bar .info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:  0 10px;
+}
+.skill_bar .info p:nth-child(2){
+    font-weight: 500;
+}
+.skill_bar .bar{
+    width: 100%;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.144);
+    border-radius: 155px;
+    margin-top: 5px;
+    position: relative;
+}
+.skill_bar .bar span{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    border-radius: 2%;
+}
+.skill_bar .bar .html{
+    width: 50%;
+    background-color: rgba(235, 95, 8, 0.836);
+    animation: html 2s;
+}
+
+.skill_bar .bar .css{
+    width: 85%;
+    background-color: rgb(97, 4, 179);
+    animation: css 2s;
+}
+
+
+.skill_bar .bar .sass{
+    width: 50%;
+    background-color: rgba(235, 95, 8, 0.836);
+    animation: sass 2s;
+}
+@keyframes sass {
+    0%{
+        width: 0%;
+    }100%{
+        width: 80%;
+    }
+}
+.skill_bar .bar .js{
+    width: 80%;
+    background-color: rgb(97, 4, 179);
+    animation: css 2s;
+}
+
+
+.skill_bar .bar .react{
+    width: 95%;
+    background-color: rgba(235, 95, 8, 0.836);
+    animation: react 2s;
+}
+
+.skill_bar .bar .node{
+    width: 80%;
+    background-color: rgb(97, 4, 179);
+    animation: node 2s;
+}
+
+.skill_bar .bar .express{
+    width: 65%;
+    animation: express 2s;
+}
+
+.skill_bar .bar .mongo{
+    width: 60%;
+    animation: mongo 2s;
+}
+
 
 .container {
     width: 30%;
