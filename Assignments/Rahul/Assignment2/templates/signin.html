@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Signup - Flask</title>
+{% endblock %}
+
+{% block body %}
+<main class="container">
+    <div class="mx-auto mt-5 border bg-light" style="width: 500px;">
+        <h2 class="mx-4 mt-2">SIGN IN</h2>
+        <form action="{{ url_for('accessbackend') }}" method="get">
+            <div class="my-2 mx-4">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" placeholder="abc@xyz.com" name="email" required/>
+            </div>
+            <div class="my-2 mx-4">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" placeholder="Password" name="password" required/>
+            </div>
+            <input type="submit" value="submit" class="btn btn-primary my-4 mx-4 mt-2"/>
+        </form>
+    </div>
+</main>
+{% endblock %}
