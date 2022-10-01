@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>About - Flask App</title>
+{% endblock %}
+
+{% block body %}
+<main class="container mx-auto my-4 bg-light border" style="width: 60%;">
+    <h1 class="p-2 border-bottom border-2">About Flask App</h1>
+    <p>
+        This application is developed with Python Flask framework and is developed by 
+        <strong>LOKESH N</strong> as a part of <i>IBM Nalayathiran's Assignments</i>
+        this app will show a list of all users <i>signed up</i> in this app, <i>sign in</i> page shows 
+        all the detail of the particular user after signing in, it uses dynamic routing to show induvidual user details
+        and uses a local database to store the user data.
+    </p>
+    <p>The <tt>database_setup.py</tt> is executed to create 
+        and initialize the local database. Using the below command<tt class="d-block p-2 bg-dark text-white rounded-3 my-1">python database_setup.py</tt>
+        Using the below command run the server in development mode<tt class="d-block p-2 bg-dark text-white rounded-3 my-1">flask --debug run</tt>
+        The entire page uses <strong>Bootstrap CSS</strong>, while the footer uses <strong>Custom CSS</strong>
+    </p>
+    <p>
+        Try the <strong><a href="/signup" class="btn btn-outline-success py-1">Sign up</a></strong> and <strong><a href="/signin" class="btn btn-outline-success py-1">Sign in</a></strong> feature from the navigation bar
+        or clicking the same here.
+    </p>
+</main>
+{% endblock %}
