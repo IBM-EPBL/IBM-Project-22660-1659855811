@@ -1,0 +1,231 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    max-width: 1024px;
+    margin: 0 auto !important;
+  }
+  
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    /* height: 150px; */
+    background-image: linear-gradient(135deg, #9b89cb, #d6747c, #e6d9d7, #b0def6);
+    margin-block: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 14px -3px rgba(0, 184, 254, 0.59);
+  }
+  
+  .banner {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .name-content {
+    width: 75%;
+    padding-inline: 30px;
+  }
+  
+  .display-picture {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    overflow: hidden;
+  }
+  
+  .display-picture > img {
+    border-radius: 50%;
+    border: 10px solid #0000000f;
+  }
+  
+  .seperation-bar {
+    width: 100%;
+    height: 5px;
+    border-radius: 50px;
+    background-color: #000;
+  }
+  
+  .name {
+    font-size: 3em;
+    font-weight: 900;
+    padding-block: 10px;
+  }
+  
+  .socials {
+    width: 100%;
+    padding-block: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .icon {
+    margin-right: 5px;
+  }
+  
+  .call-to-actions {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button-primary,
+  .button-secondary {
+    background-color: #ddd;
+    padding: 10px;
+    width: 40%;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    margin-block-end: 10px;
+    border-radius: 50px;
+    transition: background-color 100ms ease-in-out, color 100ms ease-in-out;
+  }
+  
+  .button-primary:hover,
+  .button-secondary:hover {
+    background-color: #000;
+    color: #eee;
+  }
+  
+  .main {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .main-left {
+    width: 60%;
+    padding: 15px;
+  }
+  
+  .main-left > *,
+  .main-right > * {
+    margin-block-end: 10px;
+  }
+  
+  .main-right {
+    width: 40%;
+    background-color: #eee;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .overview,
+  .skills,
+  .technologies,
+  .projects,
+  .personal-details,
+  .achievements {
+    border-left: 6px solid #66ff00;
+    padding-inline: 10px;
+    padding-block-end: 4px;
+  }
+  
+  .overview > h2,
+  .skills > h2,
+  .projects > h2,
+  .personal-details > h2,
+  .achievements > h2 {
+    margin-block-end: 5px;
+  }
+  
+  .language {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    row-gap: 10px;
+    margin-block-end: 10px;
+  }
+  
+  .progress-bar1,
+  .progress-bar2,
+  .progress-bar3,
+  .progress-bar4 {
+    width: 70%;
+    height: 8px;
+    margin-left: 20px;
+    margin-top: 4px;
+    background-color: #ddd;
+    border-radius: 50px;
+    position: relative;
+  }
+  
+  .progress-bar1::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 85%;
+    background-image: linear-gradient(90deg, #7d4eff, #fc2f40);
+    border-radius: 50px;
+  }
+  
+  .progress-bar2::before,
+  .progress-bar3::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 70%;
+    background-image: linear-gradient(90deg, #7d4eff, #fc2f40);
+    border-radius: 50px;
+  }
+  
+  .progress-bar4::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 40%;
+    background-image: linear-gradient(90deg, #7d4eff, #fc2f40);
+    border-radius: 50px;
+  }
+  
+  .grid-item {
+    margin-top: 10px;
+  }
+  
+  .familiar-technilogies {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .familiar-technilogies > span {
+    margin-block-end: 5px;
+  }
+  
+  .projects > div {
+    margin-block-end: 10px;
+  }
+  
+  .project1,
+  .project2,
+  .achievements > p {
+    border-left: 6px solid #00b8fe;
+    padding-inline: 10px;
+    padding-block-end: 2px;
+  }
+  
+  .project1 > h4,
+  .project2 > h4 {
+    margin-block-end: 5px;
+  }
+  
+  .details {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    row-gap: 10px;
+  }
+  
+  .achievements > p {
+    margin-block-end: 10px;
+  }
