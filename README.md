@@ -25,5 +25,4 @@ Having lots of skills but wondering which job will best suit you? Don’t need t
   - [MAHESH P](https://github.com/IBM-EPBL/IBM-Project-22660-1659855811/tree/main/Assignments/Mahesh)
   - [KOVI RAHUL](https://github.com/IBM-EPBL/IBM-Project-22660-1659855811/tree/main/Assignments/Rahul)
   - [HARSHAVARDHAN V](https://github.com/IBM-EPBL/IBM-Project-22660-1659855811/tree/main/Assignments/Harshavardhan)
-- [Empathy map](https://github.com/IBM-EPBL/IBM-Project-22660-1659855811/tree/main/IdeationPhaseFiles/EmpathyMap)
-- [Literature survey](https://github.com/IBM-EPBL/IBM-Project-22660-1659855811/tree/main/IdeationPhaseFiles/LiteratureSurvey)
+- [Ideation Phase](https://github.com/IBM-EPBL/IBM-Project-22660-1659855811/tree/main/Project%20Design%20%26%20Planning/Ideation%20Phase)
