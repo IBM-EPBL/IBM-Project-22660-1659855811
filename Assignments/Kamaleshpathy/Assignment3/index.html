@@ -55,5 +55,18 @@
         <a href="https://github.com/kamalesh-pathy-va/" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/kamalesh-pathy-va/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </footer>
+    <script>
+        window.watsonAssistantChatOptions = {
+          integrationID: "55600550-2ac7-46fd-85b3-08129a413c12", // The ID of this integration.
+          region: "jp-tok", // The region your integration is hosted in.
+          serviceInstanceID: "ac11097b-5573-4744-9b85-ea74327ddcba", // The ID of your service instance.
+          onLoad: function(instance) { instance.render(); }
+        };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+          document.head.appendChild(t);
+        });
+      </script>
 </body>
 </html>
