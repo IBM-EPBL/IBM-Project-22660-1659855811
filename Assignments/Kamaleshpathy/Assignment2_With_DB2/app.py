@@ -84,3 +84,24 @@ def accessbackend():
                 return redirect(url_for("user_page", id=temp_user_eamil))
             print(dictionary['PASSWORD']) # Shows actuall password if incorrect in terminal
         return redirect(url_for("signin"))
+
+@app.route("/delete/<id>")
+def delete(id):
+    sql = f"SELECT * FROM users WHERE email='{id}'"
+    stmt = ibm_db.exec_immediate(conn, sql)
+    usr = ibm_db.fetch_row(stmt)
+    print(usr)
+    if usr:
+        sql = f"DELETE FROM users WHERE email='{id}'"
+        stmt = ibm_db.exec_immediate(conn, sql)
+        users = []
+        sql = "SELECT * FROM users"
+        stmt = ibm_db.exec_immediate(conn, sql)
+        dictionary = ibm_db.fetch_both(stmt)
+        while dictionary != False:
+            users.append(dictionary)
+            dictionary = ibm_db.fetch_both(stmt)
+        if users:
+            return redirect(url_for("home_page"))
+
+    return redirect(url_for("home_page"))

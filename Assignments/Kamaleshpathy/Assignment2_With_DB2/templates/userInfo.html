@@ -15,6 +15,13 @@
             <span style="display: block;">Phone: {{user[3]}}</span>
             <span style="display: block;">DOB: {{user[5]}}</span>
         </div>
+        <div>
+            <form action="{{ url_for('delete', id=user[2]) }}">
+                <button type="button" class="btn btn-outline-info me-2" onclick=show_alert()><i class="fa-regular fa-pen-to-square"></i> Update</button>
+                <button type="submit" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i> Delete</button>
+            </form>
+        </div>
     </div>
 </main>
+<script src="{{ url_for('static', filename='js/userinfo.js') }}"></script>
 {% endblock %}
