@@ -1,0 +1,24 @@
+.update-form {
+  margin: 10px 20%;
+}
+
+.skills,
+.pro-item,
+.addresses,
+.descreption,
+.achievements,
+.github-url,
+.linkedin-url {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills,
+.pro-item,
+.addresses,
+.descreption,
+.achievements,
+.github-url,
+.linkedin-url > input {
+  margin-inline-end: 20%;
+}

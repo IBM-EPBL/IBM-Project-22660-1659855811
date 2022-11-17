@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{user['FIRSTNAME']+" "+user['LASTNAME']+" "}} Job Post</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/addjob.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="post-job-form">
+    <form action="{{ url_for('addjob') }}" method="post">
+        <input type="text" name="c_id" value="{{ user['C_ID'] }}" hidden>
+        <div class="Org">
+            <label for="organization">Organization Name</label>
+            <input type="text" name="organization" id="organization">
+        </div>
+        <div class="title-job">
+            <label for="title">Job Title</label>
+            <input type="text" name="title" id="title">
+        </div>
+        <div class="description">
+            <label for="des">Job description</label>
+            <textarea name="des" id="des" cols="40" rows="3" placeholder="Job Description"></textarea>
+        </div>
+        <div>
+            <div class="req_skills" id="req_skills">
+                <label for="req_skill">Required Skills</label>
+                <input type="text" name="req_skill" placeholder="Flask">
+            </div>
+            <button id="add-skill" type="button">Add Skill</button>
+        </div>
+        <div>
+            <div class="locations" id="locations">
+                <label for="location">Location City</label>
+                <input type="text" name="location" placeholder="Chennai">
+            </div>
+            <button id="add-location" type="button">Add Location</button>
+        </div>
+        <button id="submit">SUBMIT</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('add-skill').onclick = function () {
+        const input_tag = document.createElement('input');
+        input_tag.setAttribute('name', 'req_skill');
+        input_tag.setAttribute('placeholder', 'Flask');
+        input_tag.setAttribute('type', 'text');
+        const skills_div = document.getElementById('req_skills');
+        skills_div.appendChild(input_tag);
+    }
+    document.getElementById('add-location').onclick = function () {
+        const input_tag = document.createElement('input');
+        input_tag.setAttribute('name', 'location');
+        input_tag.setAttribute('placeholder', 'Chennai');
+        input_tag.setAttribute('type', 'text');
+        const skills_div = document.getElementById('locations');
+        skills_div.appendChild(input_tag);
+    }
+</script>
+{% endblock %}

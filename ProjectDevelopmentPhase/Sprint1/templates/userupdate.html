@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{user['FIRSTNAME']+" "+user['LASTNAME']+" "}} Update</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/userupdate.css')}}">
+{% endblock %}
+
+{% block body %}
+<div class="update-form">
+<form action="{{ url_for('modifyskills') }}" id="the-form" method="post">
+    <input type="text" name="c_id" value="{{ user['C_ID'] }}" hidden>
+    <div class="descreption">
+        <label for="des">Bio</label>
+        <textarea name="des" id="des" cols="40" rows="3" placeholder="Tell about yourself"></textarea>
+    </div>
+    <div>
+        <div class="skills" id="skills">
+            <label for="name">Skills</label>
+            <input type="text" name="skill" placeholder="Python">
+        </div>
+        <button id="add-skill" type="button">add element</button>
+    </div>
+    <div>
+        <div class="projects" id="projects">
+            <div class="pro-item">
+                <label for="project">Project Title</label>
+                <input type="text" name="project" placeholder="Cloud app">
+                <label for="project_des">Descreption</label>
+                <textarea name="project_des" cols="40" rows="3" placeholder="Describe your project"></textarea>
+            </div>
+        </div>
+        <button id="add-des" type="button">add element</button>
+    </div>
+    <div class="addresses">
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address">
+    </div>
+    <div class="linkedin-url">
+        <label for="linkedin">LinkedIn URL</label>
+        <input type="text" name="linkedin" id="linkedin">
+    </div>
+    <div class="github-url">
+        <label for="github">Github URL</label>
+        <input type="text" name="github" id="github">
+    </div>
+    <div>
+        <div class="achievements" id="achievements">
+            <label for="achievement">Achievements</label>
+            <input type="text" name="achievement" placeholder="CCNA">
+        </div>
+        <button id="add-achieve" type="button">add element</button>
+    </div>
+    <button id="submit">SUBMIT</button>
+</form>
+</div>
+
+<script>
+document.getElementById('add-skill').onclick = function () {
+    const input_tag = document.createElement('input');
+    input_tag.setAttribute('name', 'skill');
+    input_tag.setAttribute('placeholder', 'Python');
+    input_tag.setAttribute('type', 'text');
+    const skills_div = document.getElementById('skills');
+    skills_div.appendChild(input_tag);
+}
+
+document.getElementById('add-achieve').onclick = function () {
+    const input_ach = document.createElement('input');
+    input_ach.setAttribute('name', 'achievement');
+    input_ach.setAttribute('placeholder', 'CCNA');
+    input_ach.setAttribute('type', 'text');
+    const achievements_div = document.getElementById('achievements');
+    achievements_div.appendChild(input_ach);
+}
+
+document.getElementById('add-des').onclick = function () {
+    const lab_title = document.createElement('label');
+    lab_title.setAttribute('for', 'project');
+    lab_title.innerText = "Project Title";
+    const input_pro = document.createElement('input');
+    input_pro.setAttribute('name', 'project');
+    input_pro.setAttribute('placeholder', 'Cloud app');
+    input_pro.setAttribute('type', 'text');
+    const lab_des = document.createElement('label');
+    lab_des.setAttribute('for', 'project_des');
+    lab_des.innerText = "Description";
+    const input_des = document.createElement('textarea');
+    input_des.setAttribute('name', 'project_des');
+    input_des.setAttribute('placeholder', 'Describe your project');
+    input_des.setAttribute('cols', '40');
+    input_des.setAttribute('rows', '3');
+    const div_pro = document.createElement('div');
+    div_pro.setAttribute('class', 'pro-item');
+    div_pro.append(lab_title, input_pro, lab_des, input_des);
+    const master_div = document.getElementById('projects');
+    master_div.appendChild(div_pro);
+}
+</script>
+{% endblock %}

@@ -1,0 +1,20 @@
+.post-job-form {
+  margin: 10px 20%;
+}
+
+.Org,
+.title-job,
+.description,
+.req_skills,
+.locations {
+  display: flex;
+  flex-direction: column;
+}
+
+.Org,
+.title-job,
+.description,
+.req_skills,
+.locations > input {
+  margin-inline-end: 20%;
+}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{user['FIRSTNAME']+" "+user['LASTNAME']+" "}}Profile</title>
+{% endblock %}
+
+{% block body %}
+<h1 class="m-4">{{user}}</h1>
+<h1 class="m-4">{{data}}</h1>
+<h1 class="m-4">{{openings}}</h1>
+<button id="logout">Logout</button>
+<a href="{{ url_for('updateprofile', user=user) }}">UPDATE</a>
+
+<script>
+    localStorage.setItem("C_ID", "{{ user['C_ID'] }}");
+    document.getElementById('logout').onclick = function logout() {
+        let token = localStorage.removeItem('C_ID');
+        location.href = '/';
+    }
+</script>
+{% endblock %}

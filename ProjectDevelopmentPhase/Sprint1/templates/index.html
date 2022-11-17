@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>SJR App</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+<section class="content">
+    <div class="left">
+        <h1 class="m-4 pe-5"><sup><i class="fa-solid fa-quote-left"></i></sup> A bend in the road is not the end of the road…</h1>
+        <h1 class="m-4 pe-4">unless you fail to make the turn. <sup><i class="fa-solid fa-quote-right"></i></sup></h1>
+    </div>
+    <div class="right">
+        <h3>Get into the world of job heaven</h3>
+        <div class="ss-button">
+            <a href="/login" class="log-button">Sigin</a>
+            <a href="/signup" class="log-button">Sigup</a>
+        </div>
+    </div>
+</section>
+<section class="content" id="about">
+    <h1>About</h1>
+</section>
+<section class="content" id="contact">
+    <h1>Contact</h1>
+</section>
+{% endblock %}
