@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Search - SJR App</title>
+<style>
+    .main-content {
+        padding-block-start: 60px;
+        padding: 10% 20% 10% 20%;
+    }
+    .card-list {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="main-content">
+    <form action="{{ url_for('searchbackend') }}" method="get">
+        <div class="input-group mb-3">
+            <input type="text" name="searchval" class="form-control" placeholder="Search your job" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-primary text-light bg-primary" type="submit" id="button-addon2">Search</button>
+        </div>
+    </form>
+    <div class="card-list">
+        {% if offers|length != 0%}
+        {% for job in offers %}
+        <div class="card border-warning" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title text-dark">{{job['TITLE']}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">by {{job['ORGANIZATION']}}</h6>
+                <p class="card-text text-dark">{{job['DES']}}</p>
+                {% if job['REQ_SKILL'] != '' %}
+                    <h5 class="text-dark">Skills</h5>
+                    <div class="skill-list text-dark">
+                        {% for skill in job['REQ_SKILL'].split(',') %}
+                            <div class="ind-skill">{{skill}}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

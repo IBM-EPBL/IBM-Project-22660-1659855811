@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{user['FIRSTNAME']+" "+user['LASTNAME']+" "}}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/userprofile.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/recruitment.css') }}">
+{% endblock %}
+
+{% block nav %}
+<a class="topnav-item text-danger"  id="logout">Logout</a>
+{% endblock %}
+
+{% block body %}
+<div class="main-content fs-5">
+    <div class="card">
+        <h5 class="card-header text-dark">Details - Business</h5>
+        <div class="card-body card-wid">
+            <h5 class="card-title text-dark">{{user['FIRSTNAME']+" "+user['LASTNAME']}}</h5>
+            <div class="contact-details">
+                <div class="mob-no text-dark">Mobile: {{ user['PHONE'] }}</div>
+                <div class="email-contact text-dark">E-mail: {{ user['EMAIL'] }}</div>
+            </div>
+        </div>
+        <div class="apply-btn pe-4 pb-4">
+            <a href="{{ url_for('postjob', user=user) }}" class="btn btn-warning">Post new job</a>
+        </div>
+    </div>
+    <div class="job-cards">
+        <h5 class="card-header">Posted Jobs</h5>
+        {% if data|length != 0%}
+        {% for job in data %}
+        <div class="card border-warning" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title text-dark">{{job['TITLE']}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">by {{job['ORGANIZATION']}}</h6>
+                <p class="card-text text-dark">{{job['DES']}}</p>
+                {% if job['REQ_SKILL'] != '' %}
+                    <h5 class="text-dark">Skills</h5>
+                    <div class="skill-list text-dark">
+                        {% for skill in job['REQ_SKILL'].split(',') %}
+                            <div class="ind-skill">{{skill}}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h6 class="card-subtitle mb-2">Post new job to see your openings.</h6>
+        {% endif %}
+    </div>
+    <div class="job-cards">
+        <h5 class="card-header">Eligible Candidates</h5>
+        {% if candidates|length != 0 %}
+        {% for x in range(candidates|length) %}
+        <div class="card border-warning" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title text-dark">{{info[x]['FIRSTNAME'] + " " + info[x]['LASTNAME']}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{candidates[x]['DES']}}</h6>
+                {% if candidates[x]['SKILLS'] != '' %}
+                    <h5 class="text-dark">Skills</h5>
+                    <div class="skill-list text-dark">
+                        {% for skill in candidates[x]['SKILLS'].split(',') %}
+                            <div class="ind-skill">{{skill}}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h6 class="card-subtitle mb-2">No eligible candidates yet</h6>
+        {% endif %}
+
+<script>
+    localStorage.setItem("C_ID", "{{ user['C_ID'] }}");
+    document.getElementById('logout').onclick = function logout() {
+        let token = localStorage.removeItem('C_ID');
+        location.href = '/';
+    }
+</script>
+{% endblock %}

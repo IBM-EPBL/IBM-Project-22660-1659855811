@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Signin - SJR App</title>
+<style>
+    .main {
+        padding-block-start: 60px;
+        background-image: url("{{ url_for('static', filename='images/jobBG.jpg') }}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: grayscale(80%);
+        height: 100vh;
+    }
+    .bg {
+        backdrop-filter: blur(40px);
+        border-radius: 10px;
+        padding-block: 10px;
+    }
+    .navigation-action {
+        display: flex;
+        justify-content: space-between;
+    }
+    .b-wid {
+        width: 20%;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<main class="container">
+    <div class="mx-auto mt-5 border bg" style="width: 500px;">
+        <h2 class="mx-4 mt-2">Login</h2>
+        <form action="{{ url_for('accessbackend') }}" method="get">
+            <div class="my-2 mx-4">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" placeholder="abc@xyz.com" name="email" required/>
+            </div>
+            <div class="my-2 mx-4">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" placeholder="Password" name="password" required/>
+                <a href="/forgot" class="text-info">Forgot password</a>
+            </div>
+            {% if msg == "Account Created" %}
+            <div class="my-2 mx-4 p-2 bg-success d-flex justify-content-center rounded rounded-3">
+                {{msg}}
+            </div>
+            {% elif msg != '' %}
+            <div class="my-2 mx-4 p-2 bg-danger d-flex justify-content-center rounded rounded-3">
+                {{msg}}
+            </div>
+            {% endif %}
+            <div class="navigation-action">
+                <a href="/" class="btn btn-warning my-4 mx-4 mt-2 b-wid">Back</a>
+                <input type="submit" value="Login" class="btn btn-primary my-4 mx-4 mt-2 b-wid"/>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}
