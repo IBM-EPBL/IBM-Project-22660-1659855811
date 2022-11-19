@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{user['FIRSTNAME']+" "+user['LASTNAME']+" "}} Job Post</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/addjob.css') }}">
+{% endblock %}
+
+{% block nav %}
+<a class="topnav-item text-danger"  id="logout">Logout</a>
+{% endblock %}
+
+{% block body %}
+<main class="container">
+    <div class="post-job-form border bg">
+        <form action="{{ url_for('addjob') }}" method="post" style="width: 80%;">
+            <input type="text" name="c_id" value="{{ user['C_ID'] }}" hidden>
+            <div class="Org">
+                <label for="organization">Organization Name</label>
+                <input class="form-control" type="text" name="organization" id="organization">
+            </div>
+            <div class="title-job">
+                <label for="title">Job Title</label>
+                <input class="form-control" type="text" name="title" id="title">
+            </div>
+            <div class="description">
+                <label for="des">Job description</label>
+                <textarea class="form-control" name="des" id="des" cols="40" rows="3" placeholder="Job Description"></textarea>
+            </div>
+            <div>
+                <div class="req_skills" id="req_skills">
+                    <label for="req_skill">Required Skills</label>
+                    <input class="form-control" type="text" name="req_skill" placeholder="Flask">
+                </div>
+                <a class="btn btn-success mb-4" id="add-skill">New Skill</a>
+                <!-- <button id="add-skill" type="button">Add Skill</button> -->
+            </div>
+            <div>
+                <div class="locations" id="locations">
+                    <label for="location">Location City</label>
+                    <input class="form-control" type="text" name="location" placeholder="Chennai">
+                </div>
+                <!-- <button id="add-location" type="button">Add Location</button> -->
+                <a class="btn btn-success mb-4" id="add-location">New Location</a>
+            </div>
+            <button class="btn btn-warning" id="submit">Post Job</button>
+        </form>
+    </div>
+</main>
+
+<script>
+    document.getElementById('add-skill').onclick = function () {
+        const input_tag = document.createElement('input');
+        input_tag.setAttribute('name', 'req_skill');
+        input_tag.setAttribute('placeholder', 'Flask');
+        input_tag.setAttribute('type', 'text');
+        const skills_div = document.getElementById('req_skills');
+        skills_div.appendChild(input_tag);
+    }
+    document.getElementById('add-location').onclick = function () {
+        const input_tag = document.createElement('input');
+        input_tag.setAttribute('name', 'location');
+        input_tag.setAttribute('placeholder', 'Chennai');
+        input_tag.setAttribute('type', 'text');
+        const skills_div = document.getElementById('locations');
+        skills_div.appendChild(input_tag);
+    }
+</script>
+{% endblock %}

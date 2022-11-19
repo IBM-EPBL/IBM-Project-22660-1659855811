@@ -1,0 +1,85 @@
+.main {
+  padding-block-start: 60px;
+  background-image: url("https://sjr-app.s3.jp-tok.cloud-object-storage.appdomain.cloud/jobBG.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(80%);
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  height: 100%;
+  padding: 2%;
+}
+.left {
+  padding: 100px;
+  width: 50%;
+  height: 100%;
+}
+
+.right {
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  /* border-left: 1px solid white;
+  border-bottom: 1px solid white; */
+  border-radius: 10px;
+  backdrop-filter: blur(40px);
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ss-button {
+  display: flex;
+  padding-block-start: 100px;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.log-button {
+  text-decoration: none;
+  width: 100%;
+  /* height: 5%; */
+  background-color: #fff;
+  color: #2f2f2f;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.about-sec {
+  display: flex;
+  padding: 2%;
+  flex-direction: column;
+}
+
+.about-p {
+  font-size: x-large;
+}
+
+.contact-sec {
+  display: flex;
+  padding: 2%;
+  height: 60%;
+  flex-direction: column;
+}
+
+.contact-form {
+  padding-inline: 10%;
+  padding-block-start: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    padding: 50px;
+  }
+  .left {
+    display: none;
+  }
+  .right {
+    padding-block-start: 25%;
+    padding-inline: 10%;
+  }
+}

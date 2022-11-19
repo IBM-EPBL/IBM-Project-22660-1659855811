@@ -1,0 +1,43 @@
+.main {
+  padding-block-start: 50px;
+}
+.main-content {
+  max-width: 1150px;
+  margin: auto;
+  padding-top: 20px;
+}
+.contact-details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card-wid {
+  width: 70%;
+}
+.sub-title {
+  padding: 10px;
+}
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ind-skill {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px 30px 5px 30px;
+}
+.recommended {
+  margin-top: 15px;
+}
+.job-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.apply-btn {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+}

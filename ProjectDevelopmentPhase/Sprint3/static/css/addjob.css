@@ -1,0 +1,40 @@
+.post-job-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 65px;
+  margin-bottom: 10px;
+}
+
+.Org,
+.title-job,
+.description,
+.req_skills,
+.locations {
+  display: flex;
+  flex-direction: column;
+}
+
+.bg {
+  backdrop-filter: blur(40px);
+  border-radius: 10px;
+  padding-block: 10px;
+}
+.navigation-action {
+  display: flex;
+  justify-content: space-between;
+}
+.b-wid {
+  width: 20%;
+}
+
+.Org,
+.title-job,
+.description,
+.req_skills,
+.locations {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
