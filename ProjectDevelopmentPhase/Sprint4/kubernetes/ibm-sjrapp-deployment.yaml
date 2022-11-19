@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sjr-app
+
+spec:
+  replicas: 5
+  selector:
+   matchLabels:
+    app: sjr-app
+  template:
+   metadata:
+    labels:
+     app: sjr-app
+  
+   spec:
+    containers:
+    - name: sjr-app-container
+      image: jp.icr.io/sjr_final/sjr-app
+      imagePullPolicy: Always
+      ports:
+      - containerPort: 5000
+        protocol: TCP
