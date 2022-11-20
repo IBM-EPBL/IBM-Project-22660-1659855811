@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>SJR App</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+<section class="content">
+    <div class="left">
+        <h1 class="m-4 pe-5"><sup><i class="fa-solid fa-quote-left"></i></sup> A bend in the road is not the end of the road…</h1>
+        <h1 class="m-4 pe-4">unless you fail to make the turn. <sup><i class="fa-solid fa-quote-right"></i></sup></h1>
+    </div>
+    <div class="right">
+        <h3>Get into the world of job heaven</h3>
+        <div class="ss-button">
+            <a href="/login" class="log-button">Sigin</a>
+            <a href="/signup" class="log-button">Sigup</a>
+        </div>
+    </div>
+</section>
+<section class="about-sec" id="about">
+    <h1>About</h1>
+    <p class="about-p">We built this app because we know the pain of finding a right job for your skills</p>
+    <p class="about-p">Having lots of skills but wondering which job will best suit you? Don’t need to worry! We have come up with a skill recommender solution through which the fresher or the skilled person can log in and find the jobs by using the search option or they can directly interact with the chatbot and get their dream job.</p>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card">
+            <img src="https://sjr-app.s3.jp-tok.cloud-object-storage.appdomain.cloud/c_img1.jpg" class="card-img-top" alt="...">
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="https://sjr-app.s3.jp-tok.cloud-object-storage.appdomain.cloud/c_img2.jpg" class="card-img-top" alt="...">
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="https://sjr-app.s3.jp-tok.cloud-object-storage.appdomain.cloud/c_img3.jpg" class="card-img-top" alt="...">
+          </div>
+        </div>
+      </div>
+</section>
+<section class="contact-sec" id="contact">
+    <h1>Contact</h1>
+    <div class="contact-form">
+        <form action="">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Tell us about your queries</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="I would like to know about..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{user['FIRSTNAME']+" "+user['LASTNAME']+" "}}Profile</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/userprofile.css') }}">
+{% endblock %}
+
+{% block nav %}
+<a class="topnav-item text-danger"  id="logout">Logout</a>
+{% endblock %}
+
+{% block body %}
+<div class="main-content fs-5">
+    <div class="card">
+        <h5 class="card-header text-dark">Bio</h5>
+        <div class="card-body card-wid">
+            <h5 class="card-title text-dark">{{user['FIRSTNAME']+" "+user['LASTNAME']}}</h5>
+            {% if data['DES'] != '' %}
+                <p class="card-text text-dark">{{data['DES']}}</p>
+            {% endif %}
+            <div class="contact-details">
+                <div class="mob-no text-dark">Mobile: {{ user['PHONE'] }}</div>
+                <div class="email-contact text-dark">E-mail: {{ user['EMAIL'] }}</div>
+                {% if data['LINKEDIN'] != '' %}
+                <div class="linked-link">
+                    <a href="https://{{data['LINKEDIN']}}">LinkedIn: {{data['LINKEDIN'].split('/')[2]}}</a>
+                </div>
+                {% endif %}
+                {% if data['GITHUB'] != '' %}
+                <div class="github-link">
+                    <a href="https://{{data['GITHUB']}}">GitHub: {{data['GITHUB'].split('/')[1]}}</a>
+                </div>
+                {% endif %}
+                {% if data['ADDRESS'] != '' %}
+                <div class="address text-dark">
+                    Address: {{data['ADDRESS']}}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div style="border-bottom: 1px solid #cbcbcb;"></div>
+        {% if data['SKILLS'] != '' %}
+        <div class="sub-title">
+            <h5 class="text-dark">Skills</h5>
+            <div class="skill-list text-dark">
+                {% for skill in data['SKILLS'].split(',') %}
+                    <div class="ind-skill">{{skill}}</div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% if data['PROJECT'] != '' %}
+        <div class="sub-title">
+            <h5 class="text-dark">Projects</h5>
+            <div class="text-dark">
+                {% set projects = data['PROJECT'].split(',') %}
+                {% set project_des = data['PROJECT_DES'] %}
+                {% set length = projects|length %}
+                {% for i in range(length) %}
+                    <div class="ind-skill">
+                        <h4>{{projects[i]}}</h4>
+                        <p>{{project_des}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% if data['PROJECT'] != '' %}
+        <div class="sub-title">
+            <h5 class="text-dark">Achievements</h5>
+            <div class="skill-list text-dark">
+                {% for achieve in data['ACHIEVE'].split(',') %}
+                    <div class="ind-skill">{{achieve}}</div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        <div class="apply-btn pe-4 pb-4">
+            <a href="{{ url_for('updateprofile', user=user) }}" class="btn btn-warning">UPDATE</a>
+        </div>
+    </div>
+    {% if openings|length != 0 %}
+    <div class="recommended">
+        <div class="card">
+            <h5 class="card-header text-dark">Recommended Jobs</h5>
+            <!-- <div class="job-cards"> -->
+            {% for offer in openings %}
+            <div class="card-body">
+                <div class="card" style="width: 80%;">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">{{offer['TITLE']}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">From {{offer['ORGANIZATION']}}</h6>
+                        <p class="card-text text-dark">Description: {{offer['DES']}}</p>
+                        <p class="card-text text-dark">Location: {{offer['LOCATION']}}</p>
+                        <div class="skill-list text-dark">
+                            {% for skill in offer['REQ_SKILL'].split(',') %}
+                                <div class="ind-skill">{{skill}}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="apply-btn">
+                            <a href="#" class="btn btn-primary" style="width: 10%;">Apply</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- </div> -->
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    localStorage.setItem("C_ID", "{{ user['C_ID'] }}");
+</script>
+{% endblock %}

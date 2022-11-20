@@ -1,0 +1,4 @@
+flask
+ibm-db
+sendgrid
+gunicorn
